@@ -16,7 +16,7 @@ import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 import edu.iub.pubmed.model.*;
 import edu.iub.pubmed.parsing.ArticleParser;
-
+ 
 public class Indexer {
 
 	private ArticleParser articleParser;
@@ -29,7 +29,7 @@ public class Indexer {
 
 	public IndexWriter getIndexWriter(boolean create) throws IOException {
 		Directory dir = FSDirectory.open(new File(
-				"D:\\Z517Proj\\workspace\\PubMedIndexing\\src\\LuceneIndexes"));
+				"C:\\Users\\Balaji\\git\\PubMedIndexing\\src\\LuceneIndexes"));
 		Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_45);
 		IndexWriterConfig iwc = new IndexWriterConfig(Version.LUCENE_45,
 				analyzer);

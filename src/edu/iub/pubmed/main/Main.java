@@ -37,14 +37,14 @@ public class Main {
 				}
 			}
 		}
-
 	}
 
 	public static void main(String[] args) {
-		Main mainMethod = new Main();
-		mainMethod
-				.retrieveFiles("C:\\Users\\Balaji\\Desktop\\pub-med-mining\\DataSet\\Archive1\\Int_J_Ment_Health_Syst");
 		try {
+			Main mainMethod = new Main();
+			mainMethod
+					.retrieveFiles("C:\\Users\\Balaji\\Desktop\\pub-med-mining\\DataSet\\Archive1\\Int_J_Ment_Health_Syst");
+
 			System.out.println("rebuildIndexes");
 			Indexer indexer = new Indexer(articleList);
 			indexer.rebuildIndexes();
@@ -65,7 +65,5 @@ public class Main {
 			System.out.println("Exception caught.\n");
 			e.printStackTrace();
 		}
-
 	}
-
 }

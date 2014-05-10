@@ -38,7 +38,7 @@ public class SearchEngine {
 	/** Creates a new instance of SearchEngine */
 	public SearchEngine() throws IOException {
 		reader = DirectoryReader.open(FSDirectory.open(new File(
-				"D:\\Z517Proj\\workspace\\PubMedIndexing\\src\\LuceneIndexes")));
+				"C:\\Users\\Balaji\\git\\PubMedIndexing\\src\\LuceneIndexes")));
 		searcher = new IndexSearcher(reader);
 		analyzer = new StandardAnalyzer(Version.LUCENE_45);
 		
