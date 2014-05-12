@@ -1,4 +1,5 @@
 package edu.iub.pubmed.searchIndex;
+
 /*
  * SearchEngine.java
  *
@@ -10,7 +11,6 @@ package edu.iub.pubmed.searchIndex;
 
 import java.io.File;
 import java.io.IOException;
-
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
@@ -36,29 +36,32 @@ public class SearchEngine implements Properties {
 	private QueryParser parser = null;
 	private IndexReader reader = null;
 	private Analyzer analyzer = null;
+	private String outputToFile = null;
 
 	/** Creates a new instance of SearchEngine */
 	public SearchEngine() throws IOException {
-		reader = DirectoryReader.open(FSDirectory.open(new File(luceneIndexPath)));
+		reader = DirectoryReader.open(FSDirectory
+				.open(new File(luceneIndexPath)));
 		searcher = new IndexSearcher(reader);
 		analyzer = new StandardAnalyzer(Version.LUCENE_45);
-		
-
 	}
 
-	public void performSearch(String queryString, String field) throws IOException,
-			ParseException {
+	public void performSearch(String queryString, String field)
+			throws IOException, ParseException {
 		parser = new QueryParser(Version.LUCENE_45, field, analyzer);
 		Query query = parser.parse(queryString);
 		TopDocs topDocs = searcher.search(query, 50);
 		ScoreDoc[] hits = topDocs.scoreDocs;
-		System.out.println("Found " + hits.length + " hits in XML element " + field);
-
+		System.out.println("Found " + hits.length + " hits in XML element "
+				+ field);
+		
 		for (int i = 0; i < hits.length; ++i) {
 			int docId = hits[i].doc;
 			Document doc = searcher.doc(docId);
-			System.out.println("Search string "+queryString+" is present in XML element "+ field+" in paper: " + doc.get("id"));
+			outputToFile = "Search string " + queryString
+					+ " is present in XML element " + field + " in paper: "
+					+ doc.get("id"); 
+			System.out.println(outputToFile);
 		}
-
 	}
 }
