@@ -1,4 +1,9 @@
 package edu.iub.pubmed.model;
+
+/**
+ * @author Balaji
+ */
+
 import java.util.Date;
 
 public class Conference {

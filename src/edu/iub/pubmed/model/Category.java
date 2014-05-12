@@ -1,4 +1,9 @@
 package edu.iub.pubmed.model;
+
+/**
+ * @author Balaji
+ */
+
 public class Category {
 
 	private String subject;

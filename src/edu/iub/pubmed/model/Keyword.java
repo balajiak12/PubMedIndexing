@@ -1,5 +1,9 @@
 package edu.iub.pubmed.model;
 
+/**
+ * @author Balaji
+ */
+
 public class Keyword {
 	
 	private String kwdGroupType;

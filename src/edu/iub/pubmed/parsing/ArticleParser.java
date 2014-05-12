@@ -1,5 +1,8 @@
 package edu.iub.pubmed.parsing;
 
+/**
+ * @author Balaji
+ */
 import java.io.IOException;
 import java.sql.Date;
 import java.util.LinkedList;

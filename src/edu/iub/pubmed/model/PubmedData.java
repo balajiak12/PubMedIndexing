@@ -1,5 +1,9 @@
 package edu.iub.pubmed.model;
 
+/**
+ * @author Balaji
+ */
+
 import java.util.List;
 
 import edu.iub.pubmed.parsing.ArticleParser;

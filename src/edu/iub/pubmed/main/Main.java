@@ -1,9 +1,12 @@
 package edu.iub.pubmed.main;
 
+/**
+ * @author Balaji
+ */
+
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
-
 import edu.iub.pubmed.luceneIndex.Indexer;
 import edu.iub.pubmed.model.*;
 import edu.iub.pubmed.properties.Properties;
