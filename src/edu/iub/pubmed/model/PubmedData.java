@@ -1,7 +1,7 @@
 package edu.iub.pubmed.model;
 
 /**
- * @author Balaji
+ * @author Balaji 
  */
 
 import java.util.List;
