@@ -37,6 +37,10 @@ public class ArticleParser {
 		this.listArticle = articleList;
 
 	}
+	
+	/**
+	 * To create document factory 
+	 */
 
 	public Document parseFile() throws Exception {
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -57,7 +61,11 @@ public class ArticleParser {
 		doc.getDocumentElement().normalize();
 		return doc;
 	}
-
+	
+	/**
+	 * Parse the XML file and extracts all the required values 
+	 * @throws Exception 
+	 */
 	public void parse(String fileName) throws Exception {
 		Document document = parseFile();
 		extractArticleMetaData(document);
@@ -68,6 +76,7 @@ public class ArticleParser {
 
 	}
 
+	
 	public void extractArticleMetaData(Document document) throws IOException {
 		String pubmedId = null;
 		String articleTitle = null;
@@ -128,7 +137,9 @@ public class ArticleParser {
 
 	/**
 	 * Extracts the Conference node from article-meta and traverses to its child
-	 * Nodes to get conference details
+	 * Nodes to get conference details.Conference element is present at following locations 
+	 * <article><article-meta><conference> . This conference element have all the required 
+	 * child nodes to populate conference table . <br>
 	 * 
 	 * @param document
 	 * @return
@@ -239,12 +250,15 @@ public class ArticleParser {
 	}
 
 	/**
-	 * Extracts and saves the keywords .
+	 * <ul>
+	 * <li>Extracts Keyword information from the XML file .</li>
 	 * 
-	 * @param document
-	 * @throws Exception
-	 */
-	private void extractKeyWords(Document document) throws Exception {
+	 * <li>Author information is available at
+	 * <article><article-meta><kwd-group><kwd></li>
+	 * 
+	 * </ul>
+	 * 
+	 */private void extractKeyWords(Document document) throws Exception {
 		List<Keyword> keyWords = new LinkedList<Keyword>();
 		Keyword keyword = null;
 		NodeList keywordGroups = null;
