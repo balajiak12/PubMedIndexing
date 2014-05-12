@@ -3,12 +3,13 @@ package edu.iub.pubmed.main;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
+
 import edu.iub.pubmed.luceneIndex.Indexer;
-import edu.iub.pubmed.model.Article;
-import edu.iub.pubmed.model.PubmedData;
+import edu.iub.pubmed.model.*;
+import edu.iub.pubmed.properties.Properties;
 import edu.iub.pubmed.searchIndex.SearchEngine;
 
-public class Main {
+public class Main implements Properties{
 
 	private PubmedData pubmedData;
 	static List<Article> articleList;
@@ -42,8 +43,7 @@ public class Main {
 	public static void main(String[] args) {
 		try {
 			Main mainMethod = new Main();
-			mainMethod
-					.retrieveFiles("C:\\Users\\Balaji\\Desktop\\pub-med-mining\\DataSet\\Archive1\\Int_J_Ment_Health_Syst");
+			mainMethod.retrieveFiles(loadDataSet);
 
 			System.out.println("rebuildIndexes");
 			Indexer indexer = new Indexer(articleList);

@@ -25,11 +25,13 @@ import org.apache.lucene.util.Version;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 
+import edu.iub.pubmed.properties.Properties;
+
 /**
  * 
  * @author Balaji
  */
-public class SearchEngine {
+public class SearchEngine implements Properties {
 	private IndexSearcher searcher = null;
 	private QueryParser parser = null;
 	private IndexReader reader = null;
@@ -37,8 +39,7 @@ public class SearchEngine {
 
 	/** Creates a new instance of SearchEngine */
 	public SearchEngine() throws IOException {
-		reader = DirectoryReader.open(FSDirectory.open(new File(
-				"C:\\Users\\Balaji\\git\\PubMedIndexing\\src\\LuceneIndexes")));
+		reader = DirectoryReader.open(FSDirectory.open(new File(luceneIndexPath)));
 		searcher = new IndexSearcher(reader);
 		analyzer = new StandardAnalyzer(Version.LUCENE_45);
 		
