@@ -1,7 +1,7 @@
 package edu.iub.pubmed.parsing;
 
 /**
- * @author Balaji
+ * @author Balaji 
  */
 import java.io.IOException;
 import java.sql.Date;
